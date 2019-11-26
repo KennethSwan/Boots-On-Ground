@@ -3,7 +3,6 @@ Boots-On-Ground
 * After registering or logging in, user is taken to a landing page with a header, and containers which hold resources for a specific catagory.
 * Users will be able to click on the container for the resources and see a list of the resoruces in that specific catagory.
 * For each resource they will be shown a the name of the organization, a brief description of what the resource does, and a link to the resources webpage.
-* The admin will be the only user that is able to completely CRUD the resources.
 * The admin will be the ONLY one that can CRUD the resources, everyone would be able to read them.
 * Allow organizations in the db to register for a login to post to the app, so that they can show users what programs they have and what is upcoming for them.
 # User Routes
