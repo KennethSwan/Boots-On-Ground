@@ -1,23 +1,24 @@
 Boots-On-Ground
 * The first thing user sees is login page, asked to register if not already.
-* After registering or logging in, user is taken to a landing page with a header, and containers which hold resources for a specific catagory.
-* Users will be able to click on the container for the resources and see a list of the resoruces in that specific catagory.
-* For each resource they will be shown a the name of the organization, a brief description of what the resource does, and a link to the resources webpage.
-* The admin will be the ONLY one that can CRUD the resources, everyone would be able to read them.
+* After registering or logging in, user is taken to a landing page with a header, and containers which hold organiation for a specific catagory.
+* Users will be able to click on the container for the catagories and see a list of the organizations in that specific catagory.
+* For each resource they will be shown a the name of the organization, a brief description of what the organization does, and a link to the organizations webpage.
+* The admin and organizations will be able to CRUD the resources available, everyone would be able to read them.
 * Allow organizations in the db to register for a login to post to the app, so that they can show users what programs they have and what is upcoming for them.
 # User Routes
-* User Register route. user.route('/register', methods=["POST])// User will now be registered for app.
-* User Login route. user.route('/login', methods=["PUT])// User will now be logged in to app.
-# Show Resources
-* User route to see all resources show.route('/', methods=["GET"]) // Allows user to see all resources available to them that have been added by admin, as well as the posts made by the resource(If any)
-# Admin Routes
-* Admin Login route. admin.route('/login', methods=["PUT"]) // Admin will now be given access to app to CRUD resources.
-* Admin route for creating a resource. admin.route('/', methods=["POST"]) // Admin will now have created a resource.
-* Admin route for updating a resource. admin.route('/', methods=["PUT"]) // Admin can update a resource
-* Admin route for deleting a resource. admin.route('/' methods=["Delete"] // Admin can delete resources.
+* ('/users/register', methods=["POST])// User will now be registered for app.
+* ('/users/login', methods=["POST"])// User will now be logged in to app.
 # Resource Routes
-* Resource route to allow resource to register for the app. resource.route('/register', methods=["POST"])
-* Resource route to allow resource to login to app. resource.route('/login', methods=["PUT"])
-* Resource route to allow resource to post to the app. resource.route('/', methods=["POST"]
-* Resource route to allow resource to update their post on the app. resource.route('/', methods=["PUT"])
-* Resource route to allow resource to delete their posts on the app. resource.route('/', methods=["Delete"])
+* ('/index', methods=["GET"]) // Allows user to see all resources available to them that have been added by admin and the organizations.
+* ('/index/:id', methods=["GET"])
+# Admin Routes
+* ('/admin/login', methods=["POST"]) // Admin will now be given access to app to CRUD resources.
+* ('/index/new', methods=["POST"]) // Admin will now have created a resource.
+* ('/index/:id', methods=["PUT"]) // Admin can update a resource
+* ('/index/:id', methods=["Delete"] // Admin can delete resources.
+# Organization Routes
+* ('/organization/register', methods=["POST"]) // Organization Registers
+* ('/organization/login', methods=["POST"]) // Organization Logs in
+* ('/index/new', methods=["POST"] // Organization can add themselves to DB.
+* ('/index/:id', methods=["PUT"]) // Organization can update infromation about themselves. 
+* ('/index/:id', methods=["Delete"]) // Resources can delete themselves. 
