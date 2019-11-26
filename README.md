@@ -1,4 +1,4 @@
-Boots-On-Ground---Flask
+Boots-On-Ground
 * The first thing user sees is login page, asked to register if not already.
 * After registering or logging in, user is taken to a landing page with a header, and containers which hold resources for a specific catagory.
 * Users will be able to click on the container for the resources and see a list of the resoruces in that specific catagory.
