@@ -9,16 +9,15 @@ Boots-On-Ground
 * ('/users/register', methods=["POST])// User will now be registered for app.
 * ('/users/login', methods=["POST"])// User will now be logged in to app.
 # Resource Routes
-* ('/index', methods=["GET"]) // Allows user to see all resources available to them that have been added by admin and the organizations.
-* ('/index/:id', methods=["GET"])
+* ('/resource/', methods=["GET"]) // Allows user to see all resource catagories available to them. 
+* ('resource/catagory' methods=["GET"] // Allows user to see all resources in a specific catagory
+* ('/resource/new', methods=["POST"]) // Admin and organizations will now have created a resource.
+* ('/resource/:id', methods=["PUT"]) // Admin and organizations can update a resource.
+* ('/resource/:id', methods=["Delete"] // Admin can delete resources.
 # Admin Routes
 * ('/admin/login', methods=["POST"]) // Admin will now be given access to app to CRUD resources.
-* ('/index/new', methods=["POST"]) // Admin will now have created a resource.
-* ('/index/:id', methods=["PUT"]) // Admin can update a resource
-* ('/index/:id', methods=["Delete"] // Admin can delete resources.
 # Organization Routes
 * ('/organization/register', methods=["POST"]) // Organization Registers
 * ('/organization/login', methods=["POST"]) // Organization Logs in
-* ('/index/new', methods=["POST"] // Organization can add themselves to DB.
-* ('/index/:id', methods=["PUT"]) // Organization can update infromation about themselves. 
-* ('/index/:id', methods=["Delete"]) // Resources can delete themselves. 
+* ('/organization/:id', methods=["PUT"]) // Organization can update infromation about themselves. 
+* ('/organization/:id', methods=["Delete"]) // Resources can delete themselves. 
