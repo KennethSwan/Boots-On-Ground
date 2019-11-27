@@ -13,7 +13,7 @@ Boots-On-Ground
 * ('resource/catagory' methods=["GET"] // Allows user to see all resources in a specific catagory
 * ('/resource/new', methods=["POST"]) // Admin and organizations will now have created a resource.
 * ('/resource/:id', methods=["PUT"]) // Admin and organizations can update a resource.
-* ('/resource/:id', methods=["Delete"] // Admin can delete resources.
+* ('/resource/:id', methods=["Delete"] // Admin and organizations can delete resources.
 # Admin Routes
 * ('/admin/login', methods=["POST"]) // Admin will now be given access to app to CRUD resources.
 # Organization Routes
