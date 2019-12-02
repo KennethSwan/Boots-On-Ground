@@ -5,6 +5,7 @@ const PORT = 4000;
 
 const Sequelize = require('sequelize');
 
+// Config DB connection 
 const sequelize = new Sequelize('resource_db', 'ken', null, {
 	host: 'localhost', 
 	dialect: 'postgres', 
@@ -18,6 +19,7 @@ const sequelize = new Sequelize('resource_db', 'ken', null, {
 	},
 });
 
+// Connect to DB
 sequelize
 	.authenticate()
 	.then(() => {
@@ -30,6 +32,7 @@ sequelize
 		}
 	}); 
 
+// Create Models
 console.log("creating User model");
 const User = sequelize.define('user', {
 	username: Sequelize.STRING,
@@ -59,6 +62,11 @@ const Resource = sequelize.define('resource', {
 }, {isUrl: true})
 
 Resource.belongsTo(Organization, {foreignKey: 'organizationId'})
+
+// MIDDLEWARE 
+
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
 	res.send('Index')
