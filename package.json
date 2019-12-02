@@ -1,0 +1,31 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "Boots-On-Ground * The first thing user sees is login page, asked to register if not already. * After registering or logging in, user is taken to a landing page with a header, and containers which hold organiation for a specific catagory. * Users will be able to click on the container for the catagories and see a list of the organizations in that specific catagory. * For each resource they will be shown a the name of the organization, a brief description of what the organization does, and a link to the organizations webpage. * The admin and organizations will be able to CRUD the resources available, everyone would be able to read them. * Allow organizations in the db to register for a login to post to the app, so that they can show users what programs they have and what is upcoming for them. # User Routes * ('/users/register', methods=[\"POST])// User will now be registered for app. * ('/users/login', methods=[\"POST\"])// User will now be logged in to app. # Resource Routes * ('/resource/', methods=[\"GET\"]) // Allows user to see all resource catagories available to them.  * ('resource/catagory' methods=[\"GET\"] // Allows user to see all resources in a specific catagory * ('/resource/new', methods=[\"POST\"]) // Admin and organizations will now have created a resource. * ('/resource/:id', methods=[\"PUT\"]) // Admin and organizations can update a resource. * ('/resource/:id', methods=[\"Delete\"] // Admin and organizations can delete resources. # Admin Routes * ('/admin/login', methods=[\"POST\"]) // Admin will now be given access to app to CRUD resources. # Organization Routes * ('/organization/register', methods=[\"POST\"]) // Organization Registers * ('/organization/login', methods=[\"POST\"]) // Organization Logs in * ('/organization/:id', methods=[\"PUT\"]) // Organization can update infromation about themselves.  * ('/organization/:id', methods=[\"Delete\"]) // Resources can delete themselves.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13",
+    "package.json": "^2.0.1",
+    "pg": "^7.14.0",
+    "sequelize": "^5.21.2",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KennethSwan/Boots-On-Ground-Flask.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KennethSwan/Boots-On-Ground-Flask/issues"
+  },
+  "homepage": "https://github.com/KennethSwan/Boots-On-Ground-Flask#readme"
+}
