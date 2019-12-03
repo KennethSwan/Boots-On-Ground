@@ -3,9 +3,9 @@ const app = express();
 const bodyParser = require('body-parser')
 const PORT = 4000; 
 
-const Sequelize = require('sequelize');
 
 // Config DB connection 
+const Sequelize = require('sequelize');
 const sequelize = new Sequelize('resource_db', 'ken', null, {
 	host: 'localhost', 
 	dialect: 'postgres', 
