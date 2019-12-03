@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express(); 
 const bodyParser = require('body-parser')
-const PORT = 4000;
+const PORT = 5000;
+const cors = require('cors');
 const methodOverride = require('method-override'); 
 
 require('./db/db');
