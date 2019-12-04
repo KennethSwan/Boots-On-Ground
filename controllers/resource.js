@@ -9,4 +9,12 @@ router.get('/', (req, res) => {
 	})
 });
 
+router.get('/category', (req, res) => {
+	Resource.findById(req.params.id, (err,resource) => {
+		if(err)
+			return res.status(401).json({"message": 'Soemthing went wrong.'})
+		res.json({ resource })
+	})
+})
+
 module.exports = router;
