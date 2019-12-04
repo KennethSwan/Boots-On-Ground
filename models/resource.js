@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const resourceSchema = new mongoose.Schema({
 	description: String, 
 	url: String, 
-	phone_number: String,
-	category: String,
+	phoneNumber: String,
 	email: String,
+	category: String,
 	organization: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Organization'
