@@ -56,7 +56,7 @@ router.put('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
 	try {
-		const deletedResource = await Resource.findByIdAndDelete(req.params.index)
+		const deletedResource = await Resource.findByIdAndDelete(req.params.id)
 		return res.status(200).json({'message': 'Resource sucessfully deleted!'})
 	}
 	catch (err) {
