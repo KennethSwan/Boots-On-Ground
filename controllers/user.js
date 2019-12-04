@@ -1,27 +1,29 @@
 const express = require('express'); 
 const router = express.Router(); 
-const User = require('../models/user');
+const User = require('../models/user.js');
 const bcrypt = require('bcryptjs');
-// register route
+
 router.post('/register', async(req, res, next) => {
 	const username = req.body.username
+	console.log(username);
 	try {
 		const user = await User.findOne({
 			username: username
 		})
 		if(user !== null) {
-			return jsonify(data={}, status={"code": 401, "message": 'A user with that username already exists!'}), 401
+			return res.status(401).json({"message": 'A user with that username already exists!'})
 		}
 	 else {
-		const password = req.body.password 
-		const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+		const password = await req.body.password 
+		console.log(password);
+		const hashedPassword = await bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 		console.log(hashedPassword);
 
 		const createdUser = await User.create({
 			username: username, 
 			password: hashedPassword
 		})
-		return jsonsify(data={}, status={'code': 201, "message": "User successfully created"}), 200
+		return res.status(201).json({"message": "User successfully created"})
 	} 
 	}catch(err){
 		next(err)
@@ -35,17 +37,17 @@ router.post('/login', async(req, res, next) => {
 			username: req.body.username
 		})
 		if(foundUser.length === 0) {
-			return jsonify(data={}, status={"code": 401, "message": 'That username does not exists!'}), 401
+			return res.status(401).json({"message": 'That username does not exists!'})
 		}
 		else {
 			const password = req.body.password
 			if(bcrypt.compareSync(password, foundUser[0].password)){
 				req.session.user = foundUser[0]._id;
 				req.session.logged = true;	
-				return jsonsify(data={}, status={'code': 201, "message": "User successfully logged in"}), 200
+				return res.status(200).json({"message": "User successfully logged in"})
 			}
 			else {
-				return jsonify(data={}, status={"code": 401, "message": 'Incorrect password!'}), 401
+				return res.status(401).json({"message": 'Incorrect password!'})
 			}
 		}
 	} catch(err) {
