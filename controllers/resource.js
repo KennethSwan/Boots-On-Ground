@@ -53,4 +53,14 @@ router.put('/:id', async (req, res, next) => {
 		return res.status(401).json({'message': 'Resource not updated! Something went wrong.'})
 	}
 })
+
+router.delete('/:id', async (req, res, next) => {
+	try {
+		const deletedResource = await Resource.findByIdAndDelete(req.params.index)
+		return res.status(200).json({'message': 'Resource sucessfully deleted!'})
+	}
+	catch (err) {
+		return res.status(401).json({'message': 'Resource not deleted! Something went wrong.'})
+	}
+})
 module.exports = router;
