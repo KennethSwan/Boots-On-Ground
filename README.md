@@ -17,7 +17,6 @@ Boots-On-Ground
 # Admin Routes
 * ('/admin/login', methods=["POST"]) // Admin will now be given access to app to CRUD resources.
 # Organization Routes
-* ('/organization/register', methods=["POST"]) // Organization Registers
+* ('/organization/register', methods=["POST"]) // Organization Registers and "Creates" itself
 * ('/organization/login', methods=["POST"]) // Organization Logs in
-* ('/organization/:id', methods=["PUT"]) // Organization can update infromation about themselves. 
-* ('/organization/:id', methods=["Delete"]) // Resources can delete themselves. 
+
