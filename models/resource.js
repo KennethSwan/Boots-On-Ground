@@ -5,7 +5,7 @@ const resourceSchema = new mongoose.Schema({
 	url: String, 
 	phone_number: String,
 	category: String,
-	contact_info: String,
+	email: String,
 	organization: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Organization'
