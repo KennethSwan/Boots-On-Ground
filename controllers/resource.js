@@ -42,4 +42,15 @@ router.post('/new', async(req, res, next) => {
 	}
 })
 
+router.put('/:id', async (req, res, next) => {
+	try {
+		const resourceToUpdate = await Resource.findByIdAndUpdate(req.params.id, req.body, {new: true});
+		console.log(resourceToUpdate);
+		await resourceToUpdate.save();
+		return res.status(200).json({'message': 'Resource sucessfully edited!'})
+	}
+	catch (err) {
+		return res.status(401).json({'message': 'Resource not updated! Something went wrong.'})
+	}
+})
 module.exports = router;
