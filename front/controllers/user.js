@@ -4,8 +4,8 @@ const User = require('../models/user.js');
 const bcrypt = require('bcryptjs');
 
 router.post('/register', async(req, res, next) => {
+	const email = req.body.email;
 	const username = req.body.username
-	console.log(username);
 	try {
 		const user = await User.findOne({
 			username: username
@@ -15,11 +15,9 @@ router.post('/register', async(req, res, next) => {
 		}
 	 else {
 		const password = await req.body.password 
-		console.log(password);
 		const hashedPassword = await bcrypt.hashSync(password, bcrypt.genSaltSync(10))
-		console.log(hashedPassword);
-
 		const createdUser = await User.create({
+			email: email,
 			username: username, 
 			password: hashedPassword
 		})

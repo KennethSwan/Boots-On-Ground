@@ -5,6 +5,10 @@ const PORT = 8000;
 const methodOverride = require('method-override'); 
 const session = require('express-session')
 const router = express.Router();
+// const cors = require('cors');
+const userController = require('./controllers/user.js');
+const resourceController = require('./controllers/resource.js');
+const organizationController = require('./controllers/organization.js');
 require('./db/db');
 
 app.use(express.json());
@@ -17,17 +21,11 @@ app.use(session({
 // MIDDLEWARE 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
+// app.use(cors({origin: 'http://localhost:3000', credentials: true}))
 
-const adminController = require('./controllers/admin.js')
-app.use('/admin', adminController)
-
-const organizationController = require('./controllers/organization.js')
 app.use('/organization', organizationController)
-
-const resourceController = require('./controllers/resource.js')
 app.use('/resource', resourceController)
 
-const userController = require('./controllers/user.js')
 app.use('/user', userController)
 
 app.listen(PORT, () => {
