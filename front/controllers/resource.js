@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/category', (req, res) => {
-	Resource.findById(req.params.id, (err,category) => {
+	Resource.find(req.params.id, (err,category) => {
 		if(err)
 			return res.status(401).json({"message": 'Soemthing went wrong.'})
 		res.json({ category })
@@ -29,8 +29,10 @@ router.post('/new', async(req, res, next) => {
 		console.log(newResource);
 		const createResource = await Resource.create(newResource);
 		const resourceArray = []
+		//const categoryArray = []
 		resourceArray.push(createResource.id)
 		console.log(resourceArray);
+		//categoryArray.push(resource.category)
 		console.log(createResource.id);
 	const createdResource = newResource
 	console.log(createdResource);
